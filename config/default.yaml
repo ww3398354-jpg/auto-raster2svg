@@ -1,0 +1,35 @@
+# auto-raster2svg 默认配置 / Default Configuration
+
+vectorize:
+  # 颜色量化 / Color quantization
+  k_min: 3
+  k_max: 16
+
+  # 双边滤波迭代次数范围 / Bilateral filter iteration range
+  bilateral_iters_min: 1
+  bilateral_iters_max: 3
+
+  # 形态学核大小范围 / Morphology kernel size range
+  morph_min: 2
+  morph_max: 8
+
+  # 最小区块面积（像素）/ Minimum contour area (pixels)
+  min_area_min: 20
+  min_area_factor: 0.00015
+
+  # 轮廓平滑系数 / Contour smoothing epsilon
+  smooth_eps_min: 0.8
+  smooth_eps_factor: 0.000833  # 1/1200
+
+quality:
+  # SSIM 阈值，低于此值触发重试 / SSIM threshold for auto-retry
+  ssim_threshold: 0.82
+
+  # 最大重试次数 / Maximum retry attempts
+  max_retries: 3
+
+  # 重试时 K 的增长倍率 / K growth factor on retry
+  retry_k_factor: 1.5
+
+  # 重试时平滑系数缩小倍率 / smooth_eps reduction factor on retry
+  retry_smooth_factor: 0.7
