@@ -65,7 +65,6 @@ class TestPipeline:
         run(str(in_png), str(out_svg), remove_bg=False, remove_watermark=False)
 
         tree = ET.parse(str(out_svg))
-        ns = {"svg": "http://www.w3.org/2000/svg"}
         # Try with and without namespace
         groups = tree.findall(".//{http://www.w3.org/2000/svg}g")
         if not groups:

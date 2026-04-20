@@ -69,11 +69,17 @@ def main(argv: List[str] | None = None) -> int:
     parser.add_argument("--industrial", action="store_true",
                         help="Enable quality self-evaluation and auto-retry")
     parser.add_argument("--no-bg-remove", dest="remove_bg",
-                        action="store_false", default=True,
-                        help="Disable background removal")
+                        action="store_false", default=False,
+                        help="Disable background removal (default: disabled)")
+    parser.add_argument("--bg-remove", dest="remove_bg",
+                        action="store_true",
+                        help="Enable background removal (requires rembg)")
     parser.add_argument("--no-watermark", dest="remove_watermark",
-                        action="store_false", default=True,
-                        help="Disable watermark removal")
+                        action="store_false", default=False,
+                        help="Disable watermark removal (default: disabled)")
+    parser.add_argument("--watermark", dest="remove_watermark",
+                        action="store_true",
+                        help="Enable watermark removal")
     parser.add_argument("--workers", type=int, default=1,
                         help="Number of parallel workers (batch mode only)")
     parser.add_argument("--report", default="report.json",

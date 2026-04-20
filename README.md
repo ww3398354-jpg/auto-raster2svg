@@ -53,8 +53,8 @@ python -m src.cli input.png output.svg --stroke
 # 工业模式（质量重试）/ Industrial mode (quality retry)
 python -m src.cli input.png output.svg --industrial
 
-# 关闭可选预处理 / Disable optional pre-processing
-python -m src.cli input.png output.svg --no-bg-remove --no-watermark
+# 关闭可选预处理 / Disable optional pre-processing (already off by default)
+python -m src.cli input.png output.svg
 ```
 
 ### Gradio GUI
@@ -81,8 +81,10 @@ docker run -v $(pwd)/data:/data raster2svg /data/in.png /data/out.svg
 | `output` | — | 输出 SVG 或文件夹 / Output SVG or directory |
 | `--stroke` | off | 仅轮廓线，不填色 / Stroke-only, no fill |
 | `--industrial` | off | 启用 SSIM 质量重试 / Enable SSIM quality retry |
-| `--no-bg-remove` | bg-remove on | 关闭背景去除 / Disable background removal |
-| `--no-watermark` | watermark on | 关闭水印去除 / Disable watermark removal |
+| `--bg-remove` | off | 启用背景去除 / Enable background removal |
+| `--no-bg-remove` | — | 关闭背景去除（默认关）/ Disable bg removal (default) |
+| `--watermark` | off | 启用水印去除 / Enable watermark removal |
+| `--no-watermark` | — | 关闭水印去除（默认关）/ Disable watermark removal (default) |
 | `--workers N` | 1 | 并行进程数（批处理）/ Parallel workers (batch) |
 | `--report path` | `report.json` | 报告输出路径 / Report output path |
 

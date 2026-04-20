@@ -25,7 +25,7 @@ def _detect_periodic_mask(gray: np.ndarray, radius: int = 3) -> np.ndarray:
     cy, cx = h // 2, w // 2
     cv2.circle(norm, (cx, cy), max(h, w) // 8, 0, -1)
 
-    median_val = float(np.median(norm[norm > 0])) if norm.any() else 1.0
+    median_val = float(np.median(norm[norm > 0])) if norm[norm > 0].size > 0 else 1.0
     threshold = min(median_val * _FFT_PEAK_THRESHOLD, 254)
     _, mask_fft = cv2.threshold(norm, threshold, 255, cv2.THRESH_BINARY)
 
